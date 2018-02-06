@@ -1,7 +1,7 @@
 :root{
-    --space: 20px;
-    --blue: 10px;
-    --color: #000000a8;
+    --spacing: 0px;
+    --blur: 2px;
+    --color:black;
 }
 
 
@@ -9,12 +9,17 @@
     margin: 0;
     box-sizing: border-box;
 }
+body{
+    width: 100vw;
+    height: 100vh;
+}
 header{
     height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    color: gray;
 }
 .container{
     display: flex;
@@ -24,14 +29,16 @@ header{
     margin: 0px 10px;
 }
 section{
-    height: 70vh;
-    width: 100%;
+    height: 70%;
+    flex: 1;
     background-image: url(coffee.jpg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     position: relative;
     top: 0;
    bottom: 0;
+   filter: blur(var(--blur));
+   margin: var(--spacing);
 }
 .overlay{
     top: 0;
@@ -39,4 +46,23 @@ section{
     background-color:var(--color);
     height: 100%;
     width: 100%;
+    opacity: 0.4;
+}
+#color{
+    border: none;
+    padding: 0px;
+    width: 24px;
+    height: 25px;
+}
+
+/* Media Quaries */
+
+@media screen and (max-width: 530px){
+    header{
+        flex-direction: row;
+        justify-content: space-around;
+    } 
+    .container{
+        flex-direction: column;
+    }
 }
